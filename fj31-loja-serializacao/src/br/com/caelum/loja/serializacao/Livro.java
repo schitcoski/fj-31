@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Livro implements Serializable{
 	
-	private static final long serialVersionUID = 1767754602433891352L;
+	private static final long serialVersionUID = 7339860952191476196L;
 	
 	private String nome;
 	private double preco;
