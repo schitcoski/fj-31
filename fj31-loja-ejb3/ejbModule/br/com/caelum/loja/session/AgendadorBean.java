@@ -39,10 +39,10 @@ public class AgendadorBean implements Agendador {
 		
 	}
 	
-	@Schedule(hour="*", minute="*/1", second="0", persistent=false)
-	public void enviaEmail(){
-		System.out.println("Enviando e-mail a cada minuto");
-	}
+//	@Schedule(hour="*", minute="*/1", second="0", persistent=false)
+//	public void enviaEmail(){
+//		System.out.println("Enviando e-mail a cada minuto");
+//	}
 	
 
 }
