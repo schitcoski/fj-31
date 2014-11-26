@@ -1,11 +1,16 @@
 package br.com.caelum.loja.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Livro implements Serializable {
@@ -17,6 +22,8 @@ public class Livro implements Serializable {
 	private long id;
 	private String nome;
 	private double preco;
+	@ManyToMany(cascade=CascadeType.PERSIST, fetch=FetchType.EAGER)
+	private List<Autor> autores = new ArrayList<>();
 
 	public String getNome() {
 		return nome;
@@ -44,5 +51,13 @@ public class Livro implements Serializable {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public List<Autor> getAutores() {
+		return autores;
+	}
+
+	public void setAutores(List<Autor> autores) {
+		this.autores = autores;
 	}
 }
