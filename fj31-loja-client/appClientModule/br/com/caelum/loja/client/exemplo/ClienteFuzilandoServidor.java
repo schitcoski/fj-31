@@ -3,7 +3,6 @@ package br.com.caelum.loja.client.exemplo;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-import br.com.caelum.loja.entity.Livro;
 import br.com.caelum.loja.session.Carrinho;
 
 public class ClienteFuzilandoServidor {
