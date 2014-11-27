@@ -4,9 +4,11 @@ import java.util.List;
 
 import javax.ejb.Local;
 import javax.ejb.Stateless;
+import javax.interceptor.ExcludeDefaultInterceptors;
 
 import br.com.caelum.loja.entity.Livro;
 
+@ExcludeDefaultInterceptors
 @Stateless
 @Local(Mensageiro.class)
 public class MensageiroBean implements Mensageiro {

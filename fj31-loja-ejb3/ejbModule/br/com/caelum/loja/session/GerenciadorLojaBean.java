@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
+import javax.interceptor.Interceptors;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -15,8 +16,10 @@ import javax.transaction.UserTransaction;
 import br.com.caelum.loja.entity.Autor;
 import br.com.caelum.loja.entity.Livro;
 import br.com.caelum.loja.exception.SalvaLivroException;
+import br.com.caelum.loja.interceptor.AuditoriaInterceptor;
 
 //@TransactionManagement(TransactionManagementType.BEAN)
+@Interceptors(AuditoriaInterceptor.class)
 @Stateless
 @Remote(GerenciadorLoja.class)
 public class GerenciadorLojaBean implements GerenciadorLoja {
