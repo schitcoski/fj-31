@@ -55,26 +55,26 @@ public class GerenciadorLojaBean implements GerenciadorLoja {
 	}
 
 	public void salva(Livro livro) {
-//		try {
-//			this.ut.begin();
-//		} catch (Exception e) {
-//			throw new EJBException(e);
-//		}
+		// try {
+		// this.ut.begin();
+		// } catch (Exception e) {
+		// throw new EJBException(e);
+		// }
 
 		this.manager.persist(livro);
 		System.out.println("Livro salvo! ID: " + livro.getId());
 		throw new SalvaLivroException();
 
-//		try {
-//			this.ut.commit();
-//		} catch (Exception e) {
-//			try {
-//				this.ut.rollback();
-//			} catch (Exception e1) {
-//				throw new EJBException(e1);
-//			}
-//			throw new EJBException(e);
-//		}
+		// try {
+		// this.ut.commit();
+		// } catch (Exception e) {
+		// try {
+		// this.ut.rollback();
+		// } catch (Exception e1) {
+		// throw new EJBException(e1);
+		// }
+		// throw new EJBException(e);
+		// }
 	}
 
 	public Autor salva(Autor autor) {
@@ -103,6 +103,12 @@ public class GerenciadorLojaBean implements GerenciadorLoja {
 		Query query = this.manager.createQuery(jpql);
 		query.setParameter("busca", "%" + nome + "%");
 		return query.getResultList();
+	}
+
+	public List<Livro> listaLivros() {
+		return this.manager.createQuery(
+				"select livro from Livro as livro join fetch livro.autores")
+				.getResultList();
 	}
 
 }

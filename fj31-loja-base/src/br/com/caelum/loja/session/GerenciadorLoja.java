@@ -12,4 +12,5 @@ public interface GerenciadorLoja {
 	List<Autor> buscaAutorPeloNomeDolivro(String nome);
 	void salva(Livro livro);
 	Autor salva(Autor autor);
+	List<Livro> listaLivros();
 }
