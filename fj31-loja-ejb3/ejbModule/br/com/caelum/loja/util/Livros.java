@@ -1,7 +1,6 @@
 package br.com.caelum.loja.util;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlElement;
@@ -16,7 +15,7 @@ public class Livros {
 	
 	@XmlElement(name="livro")
 	public List<Livro> getLivros(){
-		return this.getLivros();
+		return this.livros;
 	}
 	
 	public void adicionaLivros(List<Livro> livros){
